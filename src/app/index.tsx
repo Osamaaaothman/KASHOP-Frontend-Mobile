@@ -1,6 +1,10 @@
 import { Text, View } from "react-native";
+import { useTheme } from "../Stores/Theme";
+import { Button } from "tamagui";
 
 export default function Index() {
+  const theme=useTheme((state)=>state.theme);
+  const toggleTheme=useTheme((state)=>state.toggleTheme);
   return (
     <View
       style={{
@@ -9,7 +13,11 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+<Button
+onPress={toggleTheme}
+>
+  {theme}
+</Button>
     </View>
   );
 }
